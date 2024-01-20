@@ -292,6 +292,7 @@ func (b *bazel) Query(args ...string) (*blaze_query.QueryResult, error) {
 	blazeArgs := append([]string(nil), "--output=proto", "--order_output=no", "--color=no")
 	blazeArgs = append(blazeArgs, args...)
 
+	fmt.Println("QUERY", strings.Join(blazeArgs, " "))
 	b.WriteToStderr(false)
 	b.WriteToStdout(false)
 	stdoutBuffer, stderrBuff := b.newCommand("query", blazeArgs...)
